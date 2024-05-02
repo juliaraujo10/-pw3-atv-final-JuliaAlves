@@ -1,7 +1,7 @@
 {
-  "turmas": [
-    { "cod_turma": 1, "sigla": "1ºDS", "nome": "Turma A" },
-    { "cod_turma": 2, "sigla": "2ºDS", "nome": "Turma B" },
-    { "cod_turma": 3, "sigla": "3ºDS", "nome": "Turma C" }
+  "tbl_turma": [
+    { "id": 1, "sigla": "1ºDS", "nome": "Turma A" },
+    { "id": 2, "sigla": "2ºDS", "nome": "Turma B" },
+    { "id": 3, "sigla": "3ºDS", "nome": "Turma C" }
   ]
 }

@@ -5,11 +5,11 @@ import './App.css';
 function App() {
   const [turmas, setTurmas] = useState([]);
   const [nome, setNome] = useState('');
-  const [selectedTurma, setSelectedTurma] = useState('');
+  const [selectedSigla, setSelectedSigla] = useState('');
 
   useEffect(() => {
     // Buscar turmas do JSON Server
-    axios.get('http://localhost:3001/turmas')
+    axios.get('http://localhost:3001/tbl_turma')
       .then(response => setTurmas(response.data))
       .catch(error => console.error('Erro ao buscar turmas:', error));
   }, []);
@@ -18,17 +18,17 @@ function App() {
     setNome(event.target.value);
   };
 
-  const handleTurmaChange = (event) => {
-    setSelectedTurma(event.target.value);
+  const handleSiglaChange = (event) => {
+    setSelectedSigla(event.target.value);
   };
 
   return (
     <div className="container">
       <h1>Formulário</h1>
-      <select value={selectedTurma} onChange={handleTurmaChange}>
-        <option value="" disabled>Selecione uma turma</option>
+      <select value={selectedSigla} onChange={handleSiglaChange}>
+        <option value="" disabled>Selecione uma sigla</option>
         {turmas.map(turma => (
-          <option key={turma.cod_turma} value={turma.sigla}>{turma.sigla}</option>
+          <option key={turma.id} value={turma.sigla}>{turma.sigla}</option>
         ))}
       </select>
       <input 
@@ -37,7 +37,7 @@ function App() {
         value={nome}
         onChange={handleNomeChange}
       />
-      <button onClick={() => alert(`Nome: ${nome}, Sigla: ${selectedTurma}`)}>
+      <button onClick={() => alert(`Nome: ${nome}, Sigla: ${selectedSigla}`)}>
         Enviar
       </button>
     </div>
